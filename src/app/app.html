@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div
+  *ngIf="(isLoading$ | async)"
+  class="fixed inset-0 z-40 backdrop-blur-xs flex justify-center items-center"
+>
+  <div
+    class="z-50 animate-spin rounded-full h-15 w-15 border-t-4 border-b-4 border-[#701011]"
+  ></div>
+</div>
+
+<div class="overflow-x-hidden w-full h-full">
+  <router-outlet>
+    <ng-toast></ng-toast>
+    <button
+      (click)="scrolltop()"
+      *ngIf="showbutton"
+      class="fixed bottom-5 right-5 w-10 h-10 md:w-20 md:h-20 bg-stone-200 text-3xl md:text-5xl text-black rounded-full flex items-center justify-center shadow-lg transition-opacity duration-500 font-bold hover:bg-white z-50"
+    >
+      ↑
+    </button>
+  </router-outlet>
+</div>
+
+<app-footer></app-footer>
